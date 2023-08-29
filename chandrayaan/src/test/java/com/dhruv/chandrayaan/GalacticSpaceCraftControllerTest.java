@@ -147,4 +147,70 @@ public class GalacticSpaceCraftControllerTest {
 	        spacecraft = new GalacticSpaceCraftController(0,0,0,"D");
 	        assertEquals("(0,0,0)-N", spacecraft.executeCommands("r"));
 	    }
+		
+//		Turning Up Test Cases
+		
+		@Test
+	    public void testTurningUpWithInitDirectionN() {
+	        spacecraft = new GalacticSpaceCraftController(0,-1,0,"N");
+	        assertEquals("(0,-1,0)-U", spacecraft.executeCommands("u"));
+	    }
+		@Test
+	    public void testTurningUpWithInitDirectionS() {
+	        spacecraft = new GalacticSpaceCraftController(0,-1,0,"S");
+	        assertEquals("(0,-1,0)-U", spacecraft.executeCommands("u"));
+	    }
+		@Test
+	    public void testTurningUpWithInitDirectionE() {
+	        spacecraft = new GalacticSpaceCraftController(0,-1,0,"E");
+	        assertEquals("(0,-1,0)-U", spacecraft.executeCommands("u"));
+	    }
+		@Test
+	    public void testTurningUpWithInitDirectionW() {
+	        spacecraft = new GalacticSpaceCraftController(0,-1,0,"W");
+	        assertEquals("(0,-1,0)-U", spacecraft.executeCommands("u"));
+	    }
+		@Test
+	    public void testTurningUpWithInitDirectionU() {
+	        spacecraft = new GalacticSpaceCraftController(0,0,0,"U");
+	        assertEquals("(0,0,0)-U", spacecraft.executeCommands("u"));
+	    }
+		@Test
+	    public void testTurningUpWithInitDirectionD() {
+	        spacecraft = new GalacticSpaceCraftController(0,0,0,"D");
+	        assertEquals("(0,0,0)-U", spacecraft.executeCommands("u"));
+	    }
+		
+//		Turning Down Test Cases
+		
+		@Test
+	    public void testTurningDownWithInitDirectionN() {
+	        spacecraft = new GalacticSpaceCraftController(0,-1,0,"N");
+	        assertEquals("(0,-1,0)-D", spacecraft.executeCommands("d"));
+	    }
+		@Test
+	    public void testTurningDownWithInitDirectionS() {
+	        spacecraft = new GalacticSpaceCraftController(0,-1,0,"S");
+	        assertEquals("(0,-1,0)-D", spacecraft.executeCommands("d"));
+	    }
+		@Test
+	    public void testTurningDownWithInitDirectionE() {
+	        spacecraft = new GalacticSpaceCraftController(0,-1,0,"E");
+	        assertEquals("(0,-1,0)-D", spacecraft.executeCommands("d"));
+	    }
+		@Test
+	    public void testTurningDownWithInitDirectionW() {
+	        spacecraft = new GalacticSpaceCraftController(0,-1,0,"W");
+	        assertEquals("(0,-1,0)-D", spacecraft.executeCommands("d"));
+	    }
+		@Test
+	    public void testTurningDownWithInitDirectionU() {
+	        spacecraft = new GalacticSpaceCraftController(0,0,0,"U");
+	        assertEquals("(0,0,0)-D", spacecraft.executeCommands("d"));
+	    }
+		@Test
+	    public void testTurningDownWithInitDirectionD() {
+	        spacecraft = new GalacticSpaceCraftController(0,0,0,"D");
+	        assertEquals("(0,0,0)-D", spacecraft.executeCommands("d"));
+		}
 }

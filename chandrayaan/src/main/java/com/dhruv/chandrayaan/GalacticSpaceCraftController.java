@@ -129,9 +129,11 @@ public class GalacticSpaceCraftController {
     }
 
     public void turnUp() {
+    	direction = "U";
     }
 
     public void turnDown() {
+    	direction = "D";
     }
 }
 
