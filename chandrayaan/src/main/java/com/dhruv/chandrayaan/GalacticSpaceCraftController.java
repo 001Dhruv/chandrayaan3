@@ -16,7 +16,17 @@ public class GalacticSpaceCraftController {
         this.z = z;
         this.direction = direction;
     }
-    public String executeCommands(String commands) {
+    private boolean isDirectionValid() {
+		if(!"NSEWUD".contains(direction)) {
+			return false;
+		}
+		return true;
+	}
+	public String executeCommands(String commands) {
+		if(!isDirectionValid()) {
+			System.out.println("Please Enter valid Direction");
+			return "Invalid Direction";
+		}
         for (char command : commands.toLowerCase().toCharArray()) {
             switch (command) {
                 case 'f':
@@ -37,9 +47,14 @@ public class GalacticSpaceCraftController {
                 case 'd':
                     turnDown();
                     break;
+                default:
+                	System.out.println("Please Enter valid Command.");
+                	return "Invalid Command";
             }
             
         }
+        System.out.println("Final Coordiantes: ("+this.x+","+this.y+","+this.z+")");
+        System.out.println("Final Direction: "+this.direction);
         return "("+this.x+","+this.y+","+this.z+")-"+this.direction;
     }
     

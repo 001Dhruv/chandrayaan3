@@ -5,8 +5,6 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Test;
 
-import com.dhruv.chandrayaan.*;
-
 
 
 public class GalacticSpaceCraftControllerTest {
@@ -14,6 +12,17 @@ public class GalacticSpaceCraftControllerTest {
     @After
     public void destroy() {
     	spacecraft = null;
+    }
+//    Invalid Direction or Command cases
+    @Test
+    public void testInvalidDirection() {
+        spacecraft = new GalacticSpaceCraftController(0,-1,0,"G");
+        assertEquals("Invalid Direction", spacecraft.executeCommands("f"));
+    }
+    @Test
+    public void testInvalidCommand() {
+        spacecraft = new GalacticSpaceCraftController(0,-1,0,"U");
+        assertEquals("Invalid Command", spacecraft.executeCommands("g"));
     }
     
     //Move Forward Test Cases
@@ -212,5 +221,20 @@ public class GalacticSpaceCraftControllerTest {
 	    public void testTurningDownWithInitDirectionD() {
 	        spacecraft = new GalacticSpaceCraftController(0,0,0,"D");
 	        assertEquals("(0,0,0)-D", spacecraft.executeCommands("d"));
+		}
+//		Complex Test Cases
+		
+//		Init-(0,0,0)-N Final-(0,1,-1)-N command-"frubl"
+		@Test
+	    public void complexTestCase1() {
+	        spacecraft = new GalacticSpaceCraftController(0,0,0,"N");
+	        assertEquals("(0,1,-1)-N", spacecraft.executeCommands("frubl"));
+		}
+		
+//		Init-(0,0,0)-N Final-(0,2,-2)-U,command="ffrubb"
+		@Test
+	    public void complexTestCase2() {
+	        spacecraft = new GalacticSpaceCraftController(0,0,0,"N");
+	        assertEquals("(0,2,-2)-U", spacecraft.executeCommands("ffrubb"));
 		}
 }
