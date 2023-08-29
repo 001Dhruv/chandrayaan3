@@ -17,14 +17,15 @@ public class GalacticSpaceCraftController {
         this.direction = direction;
     }
     private boolean isDirectionValid() {
-		if(!"NSEWUD".contains(direction)) {
+    	String directionInitials="NSEWUD";
+		if(!directionInitials.contains(direction)) {
 			return false;
 		}
 		return true;
 	}
 	public String executeCommands(String commands) {
 		if(!isDirectionValid()) {
-			System.out.println("Please Enter valid Direction");
+//			System.out.println("Please Enter valid Direction");
 			return "Invalid Direction";
 		}
         for (char command : commands.toLowerCase().toCharArray()) {
@@ -48,14 +49,14 @@ public class GalacticSpaceCraftController {
                     turnDown();
                     break;
                 default:
-                	System.out.println("Please Enter valid Command.");
+//                	System.out.println("Please Enter valid Command.");
                 	return "Invalid Command";
             }
             
         }
-        System.out.println("Final Coordiantes: ("+this.x+","+this.y+","+this.z+")");
-        System.out.println("Final Direction: "+this.direction);
-        return "("+this.x+","+this.y+","+this.z+")-"+this.direction;
+//        System.out.println("Final Coordiantes: ("+this.x+","+this.y+","+this.z+")");
+//        System.out.println("Final Direction: "+this.direction);
+        return this.x+","+this.y+","+this.z+","+this.direction;
     }
     
     public void moveForward() {
